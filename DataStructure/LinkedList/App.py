@@ -11,3 +11,4 @@ Akagi.InsertLast(CNode(6))
 Akagi.InsertLast(CNode(7))
 Akagi.Remove(5)
 print(Akagi)
+

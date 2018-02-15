@@ -1,20 +1,20 @@
 class CNode(object):
     def __init__(self, value = None, next = None):
-        self.value = value
-        self.next = next
+        self.__value = value
+        self.__next = next
 
     def __str__(self):
-        Res = "Value = " + str(self.value) + ", Next Node is " + str(self.next)
+        Res = "Value = " + str(self.__value) + ", Next Node is " + str(self.__next)
         return Res
 
     def SetValue(self, value):
-        self.value = value
+        self.__value = value
 
     def GetValue(self):
-        return self.value
+        return self.__value
 
     def SetNextNode(self, next):
-        self.next = next
+        self.__next = next
 
     def GetNextNode(self):
-        return self.next
+        return self.__next

@@ -6,26 +6,26 @@ class CLinkedList(object):
     # Each element in the list is unique.
 
     def __init__(self, head = None):
-        self.head = head
-        self.count = 0
+        self.__head = head
+        self.__count = 0
 
     def __str__(self):
         tmp = ""
-        p = self.head
+        p = self.__head
         while p != None:
-            tmp += str(p.value)
+            tmp += str(p.GetValue())
             tmp += ","
-            p = p.next
+            p = p.GetNextNode()
         if len(tmp) > 0:
             Res = tmp[:len(tmp)-1]
         return Res
 
     def IsFound(self, value):
-        p = self.head
+        p = self.__head
         while p is not None:
-            if p.value is value:
+            if p.GetValue() is value:
                 return True
-            p = p.next
+            p = p.GetNextNode()
         return False
 
     def InsertFirst(self, node):
@@ -33,9 +33,9 @@ class CLinkedList(object):
             return
         if self.IsFound(node) is True:
             return
-        node.SetNextNode(self.head)
-        self.head = node
-        self.count += 1
+        node.SetNextNode(self.__head)
+        self.__head = node
+        self.__count += 1
 
     def InsertLast(self, node):
         if node == None:
@@ -43,29 +43,29 @@ class CLinkedList(object):
         if self.IsFound(node) is True:
             return
         node.SetNextNode(None)
-        p = self.head
+        p = self.__head
         if p is None:
-            self.head = node
+            self.__head = node
         else:
-            while p.next is not None:
-                p = p.next
-            p.next = node
+            while p.GetNextNode() is not None:
+                p = p.GetNextNode()
+            p.SetNextNode(node)
 
     def Remove(self, value):
-        p = self.head
-        if p.value is value:
-            self.head = self.head.next
+        p = self.__head
+        if p.GetValue() is value:
+            self.__head = self.__head.GetNextNode()
             del p
             return
         q = p
-        p = p.next
+        p = p.GetNextNode()
         while p is not None:
-            if p.value is value:
-                q.next = p.next
+            if p.GetValue() is value:
+                q.SetNextNode(p.GetNextNode())
                 del p
                 return
             q = p
-            p = p.next
+            p = p.GetNextNode()
 
     def GetSize(self):
-        return self.count
+        return self.__count
