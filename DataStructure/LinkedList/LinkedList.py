@@ -1,7 +1,7 @@
-from DataStructure.LinkedList.Node import CNode
+from DataStructure.LinkedList.Node import LLNode
 
-class CLinkedList(object):
-    # This linkedlist only stores different elements
+class LinkedList(object):
+    # This Linked list only stores different elements
     # and does not store the None element.
     # Each element in the list is unique.
 

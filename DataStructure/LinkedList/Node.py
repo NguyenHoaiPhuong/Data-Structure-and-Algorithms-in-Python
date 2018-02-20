@@ -1,4 +1,4 @@
-class CNode(object):
+class LLNode(object):
     def __init__(self, value = None, next = None):
         self.value = value
         self.next = next
