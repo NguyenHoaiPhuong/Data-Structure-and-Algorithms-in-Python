@@ -16,14 +16,21 @@
           <file leaf-file-name="Node.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/DataStructure/BinarySearchTree/Node.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="275">
-                  <caret line="74" column="16" lean-forward="false" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
+                <state relative-caret-position="599">
+                  <caret line="144" column="32" lean-forward="false" selection-start-line="144" selection-start-column="32" selection-end-line="144" selection-end-column="32" />
                   <folding>
-                    <element signature="e#175#437#0" expanded="false" />
-                    <element signature="e#964#1407#0" expanded="false" />
-                    <element signature="e#1982#2172#0" expanded="false" />
-                    <element signature="e#2208#2435#0" expanded="false" />
-                    <element signature="e#2609#2715#0" expanded="false" />
+                    <element signature="e#69#171#0" expanded="false" />
+                    <element signature="e#204#466#0" expanded="false" />
+                    <element signature="e#499#517#0" expanded="false" />
+                    <element signature="e#1012#1123#0" expanded="false" />
+                    <element signature="e#1273#1805#0" expanded="false" />
+                    <element signature="e#1885#2949#0" expanded="false" />
+                    <element signature="e#3062#3252#0" expanded="false" />
+                    <element signature="e#3328#3555#0" expanded="false" />
+                    <element signature="e#3639#3747#0" expanded="false" />
+                    <element signature="e#3831#3937#0" expanded="false" />
+                    <element signature="e#4018#4159#0" expanded="false" />
+                    <element signature="e#4227#4727#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -46,8 +53,8 @@
           <file leaf-file-name="App.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/DataStructure/BinarySearchTree/App.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="238">
-                  <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+                <state relative-caret-position="344">
+                  <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -79,7 +86,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="100" />
     <option name="y" value="20" />
     <option name="width" value="1400" />
@@ -212,7 +219,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -258,7 +265,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -299,22 +306,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DataStructure/BinarySearchTree/App.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        <state relative-caret-position="344">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DataStructure/BinarySearchTree/Node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="74" column="16" lean-forward="false" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
+        <state relative-caret-position="599">
+          <caret line="144" column="32" lean-forward="false" selection-start-line="144" selection-start-column="32" selection-end-line="144" selection-end-column="32" />
           <folding>
-            <element signature="e#175#437#0" expanded="false" />
-            <element signature="e#964#1407#0" expanded="false" />
-            <element signature="e#1982#2172#0" expanded="false" />
-            <element signature="e#2208#2435#0" expanded="false" />
-            <element signature="e#2609#2715#0" expanded="false" />
+            <element signature="e#69#171#0" expanded="false" />
+            <element signature="e#204#466#0" expanded="false" />
+            <element signature="e#499#517#0" expanded="false" />
+            <element signature="e#1012#1123#0" expanded="false" />
+            <element signature="e#1273#1805#0" expanded="false" />
+            <element signature="e#1885#2949#0" expanded="false" />
+            <element signature="e#3062#3252#0" expanded="false" />
+            <element signature="e#3328#3555#0" expanded="false" />
+            <element signature="e#3639#3747#0" expanded="false" />
+            <element signature="e#3831#3937#0" expanded="false" />
+            <element signature="e#4018#4159#0" expanded="false" />
+            <element signature="e#4227#4727#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -11,7 +11,10 @@ Mo.Insert(200)
 Mo.Insert(75)
 Mo.Insert(115)
 
-Mo.Remove(100)
+Mo.Remove(75)
+Mo.Remove(115)
+print("Tree Height:")
+print(Mo.GetHeight())
 a = Mo.TraverseTree()
 print(a)
 
@@ -23,3 +26,6 @@ print(Yu)
 
 Ki = Mo.FindMin()
 print(Ki)
+
+
+
