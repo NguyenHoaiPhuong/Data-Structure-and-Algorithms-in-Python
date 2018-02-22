@@ -100,12 +100,16 @@ class BSTNode(object):
                         del self
 
     # Traverse the whole tree and store all node data into a list.
-    def TraverseTree(self, a = []):
+    def __TraverseTree(self, a):
         if self.__left is not None:
-            self.__left.TraverseTree()
+            self.__left.__TraverseTree(a)
         a.append(self.__data)
         if self.__right is not None:
-            self.__right.TraverseTree()
+            self.__right.__TraverseTree(a)
+
+    def TraverseTree(self):
+        a = []
+        self.__TraverseTree(a)
         return a
 
     # Find the Node whose value is data
