@@ -71,6 +71,8 @@ class CDoubleLinkedList(object):
                     prev.SetNextNode(next)
                     if next is not None:
                         next.SetPreviousNode(prev)
+                    else:
+                        self.__tail = prev
                     p.SetPreviousNode(None)
                     p.SetNextNode(None)
                     del p
@@ -78,3 +80,21 @@ class CDoubleLinkedList(object):
                 else:
                     p = p.GetNextNode()
             return False
+
+    def Find(self, key):
+        p = self.__head
+        while p is not None:
+            if p.GetKey() == key:
+                return p
+            else:
+                p = p.GetNextNode()
+        return None
+
+    def RFind(self, key):
+        p = self.__tail
+        while p is not None:
+            if p.GetKey() == key:
+                return p
+            else:
+                p = p.GetPreviousNode()
+        return None

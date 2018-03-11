@@ -14,3 +14,9 @@ Akagi.Remove(1)
 Akagi.Remove(8)
 
 print(Akagi)
+
+a = Akagi.Find(5)
+print(a)
+
+b = Akagi.RFind(5)
+print(b)
