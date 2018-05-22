@@ -5,6 +5,7 @@ Akagi.Insert(10)
 Akagi.Insert(20)
 Akagi.Insert(25)
 Akagi.Insert(35)
+Akagi.Insert(45)
 
 a = Akagi.GetArrayPreOrder()
 print(a)
@@ -14,3 +15,6 @@ print(a)
 
 a = Akagi.GetArrayPostOrder()
 print(a)
+
+print("----------------------------------")
+print(Akagi)

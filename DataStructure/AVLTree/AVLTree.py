@@ -9,13 +9,22 @@ class AVLTree(object):
     # Print function of the class
     def __str__(self):
         res = ""
-        array = self.GetArray()
-        p = self.__root
-        while p is not None:
-            idx = self.__FindIdx(p.GetKey(), array)
-            for i in range(0, idx, 1):
-                res += '\t'
-            res += str(p.GetKey())
+        array = self.GetArrayInOrder()
+        n = len(array)
+        if n > 0:
+            parent = []
+            parent.append(self.__root)
+            while len(parent) > 0:
+                pos = 0
+                for i in range(0, len(parent), 1):
+                    idx = self.__FindIdx(parent[i].GetKey(), array)
+                    for j in range(pos, idx, 1):
+                        res += '\t'
+                    pos = idx
+                    res += str(parent[i].GetKey())
+                res += '\n'
+                parent = self.__GetALlChildren(parent)
+        return res
 
     # Get total number of nodes in the tree
     def Size(self):
@@ -40,7 +49,10 @@ class AVLTree(object):
         if self.__root is None:
             self.__root = AVLNode(key)
             self.__size += 1
+            return True
         else:
+            if self.__root.IsExistent(key) is True:
+                return False
             p = self.__root.Insert(key)
             if p is not None:
                 self.__root = p
@@ -70,6 +82,7 @@ class AVLTree(object):
             self.__root.TraversePostOrder(array)
         return array
 
+    # Find index of the member respective to the given key in the given array
     def __FindIdx(self, key, array):
         n = len(array)
         for i in range(0, n, 1):
@@ -83,8 +96,8 @@ class AVLTree(object):
         res = []
         n = len(parent)
         for i in range(0, n, 1):
-            if parent[i].__left is not None:
-                res.append(parent[i].__left)
-            if parent[i].__right is not None:
-                res.append(parent[i].__right)
+            if parent[i].GetLeft() is not None:
+                res.append(parent[i].GetLeft())
+            if parent[i].GetRight() is not None:
+                res.append(parent[i].GetRight())
         return res
