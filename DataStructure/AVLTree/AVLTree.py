@@ -43,6 +43,20 @@ class AVLTree(object):
             return None
         return self.__root.GetNode(key)
 
+    # To get height of the node respective to the given key
+    def GetHeight(self, key):
+        p = self.GetNode(key)
+        if p is None:
+            return -1
+        return p.GetHeight()
+
+    # To get the balance of the node respective to the given key
+    def GetBalance(self, key):
+        p = self.GetNode(key)
+        if p is None:
+            return -1
+        return p.GetBalance()
+
     # Insert a new node into the tree
     # If the tree becomes unbalance, update it
     def Insert(self, key):
@@ -56,6 +70,8 @@ class AVLTree(object):
             p = self.__root.Insert(key)
             if p is not None:
                 self.__root = p
+            self.__size += 1
+            return True
 
     # Delete the node respective to the given key
     def Delete(self, key):

@@ -110,6 +110,7 @@ class AVLNode(object):
                     else:
                         if q.__parent is None:
                             return q
+                return None
         elif key > self.__key:
             if self.__right is not None:
                 return self.__right.Insert(key)
@@ -123,6 +124,7 @@ class AVLNode(object):
                     else:
                         if q.__parent is None:
                             return q
+                return None
         else:
             return None
 
@@ -173,6 +175,16 @@ class AVLNode(object):
         self.__left = c
         if c is not None:
             c.__parent = self
+        lH = -1
+        rH = -1
+        if c is not None:
+            lH = c.__height
+        if self.__right is not None:
+            rH = self.__right.__height
+        self.__height = max(lH, rH) + 1
+        self.__balance = rH - lH
+        x.__height = max(x.__left.__height, self.__height) + 1
+        x.__balance = self.__height - x.__left.__height
         return x
 
     #***************    Rotate Left     ****************#
@@ -199,6 +211,16 @@ class AVLNode(object):
         self.__right = c
         if c is not None:
             c.__parent = self
+        lH = -1
+        rH = -1
+        if c is not None:
+            rH = c.__height
+        if self.__left is not None:
+            lH = self.__left.__height
+        self.__height = max(lH, rH) + 1
+        self.__balance = rH - lH
+        x.__height = max(self.__height, x.__right.__height) + 1
+        x.__balance = x.__right.__height - self.__height
         return x
 
     # ***********************    Rotate Right Left     ************************#
