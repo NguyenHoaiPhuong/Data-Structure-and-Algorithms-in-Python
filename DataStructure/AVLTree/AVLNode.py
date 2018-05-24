@@ -95,7 +95,21 @@ class AVLNode(object):
             else:
                 return self.__right.GetNode(key)
 
-    # Insert
+    # To get the node with maximum key
+    def GetMax(self):
+        if self.__right is not None:
+            return self.__right.GetMax()
+        else:
+            return self
+
+    # To get the node with minimum key
+    def GetMin(self):
+        if self.__left is not None:
+            return self.__left.GetMin()
+        else:
+            return self
+
+    # Insert new Node into the tree
     def Insert(self, key):
         if key < self.__key:
             if self.__left is not None:
@@ -128,7 +142,134 @@ class AVLNode(object):
         else:
             return None
 
+    # Remove the node with respective to the given key
+    # Return of the function is (n, obj), where:
+    # n = 0: there is only 1 node on the tree and the root node is removed
+    # n = -1: error, no node with respective key
+    # n = 1: remove successfully 1 node on the tre (not root node)
+    # obj: AVLNode object
+    # (0, None): There is only 1 node on the tree and the root node is removed
+    # (0, p): There are more than 1 node on the tree and the root node is removed
+    # (1, None): 1 node on the tree is removed (not the root node)
+    # (1, p): 1 node on the is removed and the root node is changed
+    def Remove(self, key):
+        if key < self.__key:
+            if self.__left is not None:
+                return self.__left.Remove(key)
+            else:
+                return (-1, None)
+        elif key > self.__key:
+            if self.__right is not None:
+                return self.__right.Remove(key)
+            else:
+                return (-1, None)
+        else:
+            if self.IsLeaf() is True:
+                parent = self.__parent
+                if self.RemoveLeaf() is False:
+                    return (0, None)
+                else:
+                    while parent is not None:
+                        p = parent.UpdateHeightAndBalance()
+                        if p is None:
+                            parent = parent.__parent
+                        else:
+                            if p.__parent is None:  # p is the root node
+                                return (1, p)
+                    return (1, None)
+            else:
+                if self.__left is not None and self.__right is not None:
+                    lH = self.__left.__height
+                    rH = self.__right.__height
+                    if lH > rH:
+                        lMax = self.__left.GetMax()
+                        parent = lMax.__parent
+
+                        #Swap self and lMax
+                        key = self.__key
+                        self.__key = lMax.__key
+                        lMax.__key = key
+
+                        lMax.RemoveLeaf()
+                        while parent is not None:
+                            p = parent.UpdateHeightAndBalance()
+                            if p is None:
+                                parent = parent.__parent
+                            else:
+                                if p.__parent is None:  # p is the root node
+                                    return (1, p)
+                        return (1, None)
+                    else:
+                        rMin = self.__right.GetMin()
+                        parent = rMin.__parent
+
+                        # Swap self and rMin
+                        key = self.__key
+                        self.__key = rMin.__key
+                        rMin.__key = key
+
+                        rMin.RemoveLeaf()
+                        while parent is not None:
+                            p = parent.UpdateHeightAndBalance()
+                            if p is None:
+                                parent = parent.__parent
+                            else:
+                                if p.__parent is None:  # p is the root node
+                                    return (1, p)
+                        return (1, None)
+                else:
+                    parent = self.__parent
+                    if self.__left is not None:
+                        child = self.__left
+                        if parent is not None:
+                            if parent.__left == self:
+                                parent.SetLeft(child)
+                            else:
+                                parent.SetRight(child)
+                            self.__parent = None
+                            self.__left = None
+                            child.__parent = parent
+                            return (1, None)
+                        else:
+                            child.__parent = None
+                            self.__left = None
+                            return (0, child)
+                    else:
+                        child = self.__right
+                        if parent is not None:
+                            if parent.__left == p:
+                                parent.SetLeft(child)
+                            else:
+                                parent.SetRight(child)
+                            self.__parent = None
+                            self.__right = None
+                            child.__parent = parent
+                            return (1, None)
+                        else:
+                            child.__parent = None
+                            self.__right = None
+                            return (0, child)
+
+    # Node p must be a leaf on the tree
+    def RemoveLeaf(self):
+        parent = self.__parent
+        if parent is not None:
+            if parent.__left == self:
+                parent.__left = None
+            else:
+                parent.__right = None
+            self.__parent = None
+            return True  # Remove self from the tree
+        return False    # self is the root of the tree
+
+    def IsLeaf(self):
+        if self.__left is None and self.__right is None:
+            return True
+        return False
+            
+
     # After inserting or deleting a node, traverse up the tree and update the tree
+    # If any rotate functions were used, the current node (self) would be changed. Therefore, return it.
     def UpdateHeightAndBalance(self):
         lH = -1
         rH = -1
