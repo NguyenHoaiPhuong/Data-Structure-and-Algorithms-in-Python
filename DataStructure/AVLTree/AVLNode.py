@@ -237,7 +237,7 @@ class AVLNode(object):
                     else:
                         child = self.__right
                         if parent is not None:
-                            if parent.__left == p:
+                            if parent.__left == self:
                                 parent.SetLeft(child)
                             else:
                                 parent.SetRight(child)
