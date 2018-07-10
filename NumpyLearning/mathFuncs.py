@@ -74,6 +74,16 @@ def roundFunc():
     print('The ceil modified array:')
     print(np.ceil(a))  # The smallest integer greater than the input
 
+def powerFunc():
+    a = np.arange(1, 10, 1, dtype=float).reshape(3, 3)
+    print("Original array:")
+    print(a)
+
+    b = np.array([1,2,3]).reshape(3,1)
+    c = np.power(a, b)
+    print("After Power:")
+    print(c)
 
 #trigonometricalFunc()
-roundFunc()
+#roundFunc()
+powerFunc()
